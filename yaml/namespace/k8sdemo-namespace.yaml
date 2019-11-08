@@ -1,4 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: k8sdemo
+  name: k8sdemo-namespace
+  labels:
+    name: k8s-learn-demo
+
