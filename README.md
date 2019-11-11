@@ -67,3 +67,21 @@ delete pod
 ```
 kubectl delete pod k8sdemo-pod -n k8sdemo-namespace
 ```
+
+查看 pod 在宿主机进程上的 pid
+```
+docker inspect --format '{{ .State.Pid }}' containerId
+
+ls -l /proc/pid/ns
+```
+
+### deployment
+```
+kubectl apply -f yaml/deployment/nginx-deployment.yaml
+
+kubectl get pods -l app=nginx -n k8sdemo-namespace
+
+kubectl describe pod nginx-deployment-xxx-xxx -n k8sdemo-namespace 
+
+kubectl delete deployment nginx-deployment -n k8sdemo-namespace [kubectl delete -f yaml/deployment/nginx-deployment.yaml]
+```
