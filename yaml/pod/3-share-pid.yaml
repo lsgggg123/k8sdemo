@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pid-share
+  namespace: k8sdemo-namespace
+spec:
+  shareProcessNamespace: true
+  containers:
+  - name: nginx-pid
+    image: nginx
+  - name: busybox-shell
+    image: busybox
+    stdin: true
+    tty: true
+

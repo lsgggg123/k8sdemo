@@ -31,7 +31,6 @@ delete namespace
 ```
 kubectl delete namespace k8sdemo
 ```
-
 ### pod
 
 ```
@@ -90,6 +89,13 @@ kubectl get pod init-pod  -n k8sdemo-namespace
 kubectl logs init-pod -n k8sdemo-namespace
 ```
 
+共享 pid
+```
+kubectl apply -f yaml/pod/3-share-pid.yaml
+kubectl exec -it pid-share -c busybox-shell -n k8sdemo-namespace /bin/sh
+ps -ef
+```
+可以看到，通过 `shareProcessNamespace: true`，busybox 镜像里面可以看到 nginx 的 pid
 ### deployment
 ```
 kubectl apply -f yaml/deployment/nginx-deployment.yaml
