@@ -96,6 +96,15 @@ kubectl exec -it pid-share -c busybox-shell -n k8sdemo-namespace /bin/sh
 ps -ef
 ```
 可以看到，通过 `shareProcessNamespace: true`，busybox 镜像里面可以看到 nginx 的 pid
+
+除了 pid 的 shareProcessNamespace，还有可以共享宿主机的资源：
+```
+
+spec:
+  hostNetWork: true
+  hostIPC: true
+  hostPID: true
+```
 ### deployment
 ```
 kubectl apply -f yaml/deployment/nginx-deployment.yaml
