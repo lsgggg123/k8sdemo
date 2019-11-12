@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-pod
+  namespace: k8sdemo-namespace
+spec:
+  initContainers:
+  - name: busybox-init-1
+    image: busybox
+    command: ["/bin/sh", "-c"]
+    args: ["mkdir /test-data;touch /test-data/1.txt"]
+    volumeMounts:
+    - mountPath: /test-data
+      name: app-volume
+  containers:
+  - image: k8sdemo:v1
+    name: k8sdemo-container-web
+    ports:
+    - containerPort: 8088
+      hostPort: 8088
+    volumeMounts:
+    - mountPath: /test-data
+      name: app-volume
+  volumes:
+  - name: app-volume
+    emptyDir: {}

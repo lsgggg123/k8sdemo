@@ -75,6 +75,21 @@ docker inspect --format '{{ .State.Pid }}' containerId
 ls -l /proc/pid/ns
 ```
 
+验证共享宿主机目录：
+```
+kubectl apply -f yaml/pod/1-share-host-volums.yaml
+kubectl get pods -n k8sdemo-namespace
+kubectl exec -it -n k8sdemo-namespace two-containers -c busybox-container /bin/sh
+```
+进入 busybox 的容器中，wget 127.0.0.1/index.html，可以看到共享的路径生效
+
+init container 
+```
+kubectl apply -f yaml/pod/2-init-container.yaml
+kubectl get pod init-pod  -n k8sdemo-namespace 
+kubectl logs init-pod -n k8sdemo-namespace
+```
+
 ### deployment
 ```
 kubectl apply -f yaml/deployment/nginx-deployment.yaml
