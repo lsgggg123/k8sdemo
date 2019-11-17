@@ -129,6 +129,14 @@ kubectl exec -it use-configmap -n k8sdemo-namespace /bin/sh
 cat /config-volume/bootstrap.properties
 ```
 
+### downward api
+```
+kubectl apply -f yaml/downwardapi/0-downwardapi.yaml 
+
+kubectl exec -it test-downwardapi -n k8sdemo-namespace /bin/sh
+
+cat /etc/podinfo/labels
+```
 
 ### deployment
 ```
