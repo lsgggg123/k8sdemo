@@ -105,6 +105,20 @@ spec:
   hostIPC: true
   hostPID: true
 ```
+### secret
+```
+kubectl apply -f yaml/secret/0-test-secret.yaml 
+
+kubectl apply -f yaml/secret/1-use-secret.yaml
+
+kubectl exec -it use-secret -n k8sdemo-namespace /bin/sh
+
+cd /secret-volume
+cat user
+cat pass
+```
+
+
 ### deployment
 ```
 kubectl apply -f yaml/deployment/nginx-deployment.yaml
