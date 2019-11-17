@@ -118,6 +118,17 @@ cat user
 cat pass
 ```
 
+### config map
+```
+kubectl create configmap bootstrap-configmap -n k8sdemo-namespace --from-file=src/main/resources/bootstrap.properties 
+
+kubectl apply -f yaml/configmap/0-use-configmap.yaml 
+
+kubectl exec -it use-configmap -n k8sdemo-namespace /bin/sh
+
+cat /config-volume/bootstrap.properties
+```
+
 
 ### deployment
 ```

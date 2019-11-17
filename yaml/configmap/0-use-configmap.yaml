@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: use-secret
+  name: use-configmap
   namespace: k8sdemo-namespace
 spec:
   containers:
-    - name: use-secret-container
+    - name: use-configmap-container
       image: busybox
       command: ["/bin/sh", "-c"]
       args: ["sleep 120"]
       volumeMounts:
-        - name: secret-cred
-          mountPath: "/secret-volume"
+        - name: configmap-volumes
+          mountPath: "/config-volume"
           readOnly: true
   volumes:
-    - name: secret-cred
-      secret:
-        secretName: test-secret
+    - name: configmap-volumes
+      configMap:
+        name: bootstrap-configmap
