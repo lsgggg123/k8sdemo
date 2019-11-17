@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: host-aliases
+  namespace: k8sdemo-namespace
+spec:
+  hostAliases:
+    - ip: "10.1.2.3"
+      hostnames:
+        - "foo.remote"
+        - "bar.remote"
+  containers:
+    - name: busybox-host-aliases
+      image: busybox
+      command: ["/bin/sh", "-c"]
+      args: ["sleep 3600"]
