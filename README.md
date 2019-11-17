@@ -105,6 +105,15 @@ spec:
   hostIPC: true
   hostPID: true
 ```
+liveness
+
+```
+kubectl apply yaml/pod/7-liveness.yaml
+kubectl get pod -n k8sdemo-namespace
+NAME                 READY   STATUS    RESTARTS   AGE
+test-liveness-exec   1/1     Running   1          113s
+
+```
 ### secret
 ```
 kubectl apply -f yaml/secret/0-test-secret.yaml 
