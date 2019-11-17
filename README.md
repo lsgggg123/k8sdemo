@@ -152,8 +152,16 @@ cat /etc/podinfo/labels
 kubectl apply -f yaml/deployment/nginx-deployment.yaml
 
 kubectl get pods -l app=nginx -n k8sdemo-namespace
+kubectl get rs  -n  k8sdemo-namespace
 
 kubectl describe pod nginx-deployment-xxx-xxx -n k8sdemo-namespace 
 
 kubectl delete deployment nginx-deployment -n k8sdemo-namespace [kubectl delete -f yaml/deployment/nginx-deployment.yaml]
+
+kubectl scale deployment nginx-deployment --replicas=3
+```
+
+直接编辑 yaml
+```
+kubectl edit deployment/nginx-deployment
 ```
