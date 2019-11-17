@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  namespace: k8sdemo-namespace
+  labels:
+    app: biz
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: biz
+  template:
+    metadata:
+      labels:
+        app: biz
+    spec:
+      containers:
+        - name: k8sdemo-web-container
+          image: k8sdemo:v1
+          ports:
+            - containerPort: 8088
+              hostPort: 8088
