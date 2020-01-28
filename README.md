@@ -52,6 +52,11 @@ spec:
 kubectl apply -f yaml/pod/0-k8sdemo-pod.yaml 
 ```
 
+pod 的端口转发到 mac 端口（docker for mac desktop 使用)
+```
+kubectl port-forward pods/k8sdemo-pod -n k8sdemo-namespace 8088:8088
+```
+
 list pod
 ```
 kubectl get pods -n k8sdemo-namespace
