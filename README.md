@@ -170,3 +170,15 @@ kubectl scale deployment nginx-deployment --replicas=3
 ```
 kubectl edit deployment/nginx-deployment
 ```
+
+### service
+```
+kubectl apply -f yaml/service/0-service.yaml 
+kubectl apply -f yaml/service/1-web-deployment.yaml 
+```
+
+进入 pod，验证域名解析成功（域名：<SERVICE_NAME>.<NAMESPACE_NAME>）
+```
+kubectl exec -it podname-xxxx -n k8sdemo-namespace /bin/bash
+curl web-service.k8sdemo-namespace:8081/k8sdemo/api/v1/web
+```
