@@ -7,4 +7,14 @@ layout:
 - go.kubebuilder.io/v4
 projectName: cache
 repo: com.lsgggg123/cache
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: com.lsgggg123
+  group: stable.example.com
+  kind: Cache
+  path: com.lsgggg123/cache/api/v1
+  version: v1
 version: "3"
