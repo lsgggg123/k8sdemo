@@ -1,0 +1,10 @@
+apiVersion: "stable.example.com/v1"
+kind: Cache
+metadata:
+  name: my-cache
+  namespace: test
+spec:
+  memory: "4g"
+  sharding: 4
+  region: "cn-shanghai"
+  az: "b,d"
