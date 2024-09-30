@@ -29,7 +29,10 @@ type CacheSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of Cache. Edit cache_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Memory   string `json:"memory,omitempty"`
+	Sharding int    `json:"sharding,omitempty"`
+	Region   string `json:"region,omitempty"`
+	Az       string `json:"az,omitempty"`
 }
 
 // CacheStatus defines the observed state of Cache
