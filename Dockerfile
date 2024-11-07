@@ -1,6 +1,6 @@
 FROM java:8
 
-MAINTAINER lsgggg123@gmail.com
+LABEL Author lsgggg123@gmail.com
 
 RUN ["mkdir", "/opt/java"]
 
